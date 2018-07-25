@@ -1,5 +1,6 @@
 {
 	"/api/index": "/index",
   "/api/home": "/home",
-  "/api/newhome": "/newhome"
+  "/api/newhome": "/newhome",
+  "/api/newslist": "/newslist"
 }
