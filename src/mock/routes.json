@@ -2,5 +2,6 @@
 	"/api/index": "/index",
   "/api/home": "/home",
   "/api/newhome": "/newhome",
-  "/api/newslist": "/newslist"
+  "/api/newslist": "/newslist",
+  "/api/newslistdetail": "/newslistdetail"
 }

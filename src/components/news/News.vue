@@ -13,7 +13,7 @@
 			@pullingDown="onPullingDown"
 			@pullingUp="onPullingUp"
 		>
-			<slot class="slot">
+			<slot>
 				<div class="privateMsg">
 					<img src="@/assets/msg.png" alt="">
 					<div>
@@ -56,7 +56,7 @@
 							</div>
 						</li>
 
-						<li v-for="item in newslist" :key="item.id">
+						<li v-for="(item,index) in newslist" :key="item.id" @click=handleClick(index)>
 							<img :src="item.img" alt="" >
 							<div>
 								<p id="answerUser">{{item.answerUser}}</p>
@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+// import BScroll from 'better-scroll'
 import Scroll from '../scroll/scroll.vue'
 import $ from 'axios'
 
@@ -105,6 +105,9 @@ export default {
 			} : false
 		}
 	},
+	// created () {
+	// 	this.loadData()
+	// }
 	// methods: {
 	// 	loadData() {
 	// 		$.get('/api/newslist')
@@ -119,7 +122,6 @@ export default {
 	// },
 	methods: {
 		async onPullingDown() {    
-			console.log(0)
 			let result = await $.get('/api/newslist')
 													.then(response => response.data.data)
 			if(result.length > 0 && this.newslist == result){
@@ -141,6 +143,14 @@ export default {
 			}else{
 				this.$refs.scroll.forceUpdate()
 			}
+		},
+		handleClick(id) {
+			this.$router.push({
+				name: 'newsdetail',
+				query: {
+					id
+				}
+			})
 		}
 	},
 	async created(){
