@@ -78,7 +78,8 @@ export default {
 		@include flex-direction(column);
 		.content-contain{
 			@include flex();
-			width: 100%
+			width: 100%;
+			height:100%;
 		}
 		.bar-wrap {
 			position: absolute;

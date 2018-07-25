@@ -332,6 +332,8 @@
     .scroll-content{
       position: relative;
       z-index: 1;
+      padding-top: .1rem;
+
     }
     .list-content{
       position: relative;
